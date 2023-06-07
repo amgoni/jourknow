@@ -1,0 +1,38 @@
+@import "../variables.scss";
+
+.search {
+  display: flex;
+  width: 30%;
+
+  .search__form {
+    display: flex;
+    width: 100%;
+
+    .search__form-input {
+      width: 90%;
+      height: 48px;
+      padding: 4rem;
+      border: none;
+      border-right: 1px solid $primary-color;
+      border-radius: 4px 0px 0px 4px;
+      padding: 0 10px;
+      font-size: 16px;
+      &:focus {
+        outline: none;
+      }
+    }
+    .search__form-button {
+      width: 10%;
+      height: 48px;
+      border: none;
+      border-radius: 0px 4px 4px 0px;
+      background-color: white;
+      color: $primary-color;
+      cursor: pointer;
+
+      .search__form-button-icon {
+        padding: 0.5rem;
+      }
+    }
+  }
+}

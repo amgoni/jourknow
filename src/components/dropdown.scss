@@ -1,0 +1,27 @@
+@import "../variables.scss";
+
+.dropdown {
+  display: flex;
+  justify-content: space-around;
+
+  p {
+    color: #fff;
+    padding: 1rem;
+    font-weight: 600;
+  }
+
+  select {
+    min-width: fit-content;
+    height: 48px;
+    border: none;
+    border-radius: 4px;
+    color: $primary-color;
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    option {
+      text-align: center;
+      color: $primary-color;
+    }
+  }
+}
