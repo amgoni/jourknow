@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./searchResult.scss";
+import "./resultCard.scss";
 import ResultItem from "./ResultItem";
 import Journals from "../journals.jsx";
 import Search from "./Search";
 
-const SearchResult = () => {
+const ResultCard = () => {
   const [filteredList, setFilteredList] = useState(Journals);
 
   const filterList = (event) => {
@@ -18,9 +18,8 @@ const SearchResult = () => {
   };
 
   return (
-    <div className="search-result">
-      <h1>Search Results...</h1>
-      <Search searchFilter={filterList} />
+    <div className="resultCard">
+      <Search onChange={filterList} />
       {filteredList.map((journal) => (
         <ResultItem
           key={journal.id}
@@ -32,4 +31,4 @@ const SearchResult = () => {
   );
 };
 
-export default SearchResult;
+export default ResultCard;

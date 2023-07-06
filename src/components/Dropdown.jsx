@@ -2,6 +2,7 @@ import React from "react";
 import "./dropdown.scss";
 
 const Fields = [
+  { id: 0, name: "All" },
   { id: 1, name: "Networking" },
   { id: 2, name: "Software Development" },
   { id: 3, name: "Data Science" },
@@ -14,7 +15,7 @@ const Dropdown = () => {
       <p>Search by field:</p>
       <select name="" id="">
         {Fields.map((field) => (
-          <option value="" className="dropdown__options">
+          <option key={field.id} value="" className="dropdown__options">
             {field.name}
           </option>
         ))}
