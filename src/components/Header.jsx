@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import "./header.scss";
+import logo from "../images/logo.jpg";
 
 const Header = () => {
   // State to toggle the menu
@@ -13,21 +15,21 @@ const Header = () => {
     <>
       {/* Desktop navigation */}
       <nav id="navbar" className="navbar-desktop">
-        <img src="../assets/logo.jpg" alt="ATBU logo" className="logo" />
+        <img src={logo} alt="ATBU logo" className="logo" />
         <h1>Department of Computer Science</h1>
         <ul className="nav-links">
           <li className="link">
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li className="link">
-            <a href="/about">About</a>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </nav>
 
       {/* Mobile navigation */}
       <nav className="navbar-mobile">
-        <img src="../assets/logo.jpg" alt="ATBU logo" className="logo" />
+        <img src={logo} alt="ATBU logo" className="logo" />
         <h1>Department of Computer Science</h1>
         {toggleMenu ? (
           <RiCloseLine color="138601" size={30} onClick={toggleHandler} />
