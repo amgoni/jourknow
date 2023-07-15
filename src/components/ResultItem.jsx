@@ -1,11 +1,35 @@
 import React from "react";
 import "./resultItem.scss";
 
-const ResultItem = ({ number, name, description }) => {
+const ResultItem = ({ title, publisher, language, issn, url }) => {
   return (
-    <div className="resultItem">
-      <h2>{name}</h2>
-      <p>{description}</p>
+    <div className="result-item">
+      {/* Render the title of the journal */}
+      <h2>{title}</h2>
+
+      {/* Render the publisher of the journal */}
+      <em>
+        <p>Publisher: {publisher}</p>
+      </em>
+
+      {/* Render the language of the journal */}
+      <em>
+        <p>Language: {language}</p>
+      </em>
+
+      {/* Render the ISSN of the journal */}
+      <em>
+        <p>ISSN: {issn}</p>
+      </em>
+
+      {/* Render a link to view the journal if URL is available */}
+      {url ? (
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          View Journal
+        </a>
+      ) : (
+        <p>No URL available</p>
+      )}
     </div>
   );
 };

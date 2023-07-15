@@ -2,10 +2,12 @@
 
 .search {
   display: flex;
-  width: 30%;
+  width: 40%;
+  padding-top: 2rem;
 
   .search__form {
     display: flex;
+    justify-content: center;
     width: 100%;
 
     .search__form-input {
@@ -21,6 +23,11 @@
         outline: none;
       }
     }
+
+    input {
+      font-family: $text-font;
+    }
+
     .search__form-button {
       width: 10%;
       height: 48px;
@@ -34,5 +41,17 @@
         padding: 0.5rem;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .search {
+    width: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  .search {
+    width: 90%;
   }
 }

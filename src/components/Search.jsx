@@ -1,24 +1,18 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import "./search.scss";
-import ResultCard from "./ResultCard";
 
 const Search = ({ searchFilter }) => {
   return (
     <div className="search">
+      {/* Render the search form */}
       <form className="search__form">
+        {/* Render the search input */}
         <input
           type="search"
-          placeholder="Enter title or author"
+          placeholder="Search by title"
           className="search__form-input"
           onChange={searchFilter}
         />
-        {/* <button type="button" className="search__form-button">
-          <FontAwesomeIcon
-            icon="fas fa-search"
-            className="search__form-button-icon"
-          />
-        </button> */}
       </form>
     </div>
   );

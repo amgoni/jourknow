@@ -1,14 +1,33 @@
 @import "../variables.scss";
 
-.resultItem {
+.result-item {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding-top: 2rem;
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: $primary-color;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+
+  a {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: $primary-color;
+    width: fit-content;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 }

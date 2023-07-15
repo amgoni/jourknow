@@ -1,6 +1,6 @@
 @import "../variables.scss";
 
-nav {
+.navbar-desktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,5 +40,103 @@ nav {
       color: white;
       cursor: pointer;
     }
+    a:focus {
+      background: $primary-color;
+      color: white;
+    }
+    a.activeLink {
+      background: $primary-color;
+      color: white;
+    }
+  }
+}
+
+.navbar-mobile {
+  display: none;
+  padding: 1rem;
+
+  img {
+    width: 10%;
+  }
+
+  h1 {
+    color: $primary-color;
+    margin-right: auto;
+    margin-left: 1rem;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    li {
+      margin-left: 1rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+
+    a {
+      color: $primary-color;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+    }
+
+    a:hover {
+      background: $primary-color;
+      color: white;
+      cursor: pointer;
+    }
+    a:focus {
+      background: $primary-color;
+      color: white;
+    }
+    a.activeLink {
+      background: $primary-color;
+      color: white;
+    }
+  }
+
+  .navbar-mobile-container {
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    top: 4rem;
+    right: 0;
+    position: absolute;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 2rem;
+    background: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-desktop {
+    width: 90%;
+    img {
+      width: 10%;
+    }
+    h1 {
+      margin-left: 1rem;
+    }
+    ul {
+      li {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar-desktop {
+    display: none;
+  }
+  .navbar-mobile {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
