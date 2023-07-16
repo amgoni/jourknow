@@ -1,7 +1,7 @@
 import React from "react";
 import "./resultItem.scss";
 
-const ResultItem = ({ title, publisher, language, issn, url }) => {
+const ResultItem = ({ title, publisher, language, issn, url, branch }) => {
   return (
     <div className="result-item">
       {/* Render the title of the journal */}
@@ -11,6 +11,12 @@ const ResultItem = ({ title, publisher, language, issn, url }) => {
       <em>
         <p>Publisher: {publisher}</p>
       </em>
+
+      {/* Render the field of the journal */}
+
+      {/* <em>
+        <p>Field: {branch}</p>
+      </em> */}
 
       {/* Render the language of the journal */}
       <em>

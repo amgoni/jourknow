@@ -25,6 +25,20 @@ const App = () => {
     indexOfLastJournal
   );
 
+  const queries = [
+    "machine learning",
+    "data science",
+    "network security",
+    "web development",
+    "algorithms",
+    "software engineering",
+    "artificial intelligence",
+    "operating systems",
+    "computer networks",
+    "computer science",
+    "programming languages",
+  ];
+
   // Fetch journals on component mount
   useEffect(() => {
     fetchJournals();
@@ -50,10 +64,8 @@ const App = () => {
         "programming languages",
       ];
 
-      const allJournals = [];
-
-      // Iterate through the search queries and fetch journal data
-      for (const query of queries) {
+      // Fetch journal data for each query
+      const promises = queries.map(async (query) => {
         const response = await fetch(
           `https://core.ac.uk:443/api-v2/journals/search/${encodeURIComponent(
             query
@@ -65,30 +77,30 @@ const App = () => {
         }
 
         const data = await response.json();
-        allJournals.push(...data.data);
+        return { query, journals: data.data };
+      });
 
-        // Break the loop if the desired number of results (100) is reached
-        if (allJournals.length >= 100) {
-          break;
-        }
-      }
+      const results = await Promise.all(promises);
 
-      // Transform the fetched data into the desired format
-      const transformedJournals = allJournals.slice(0, 100).map((journal) => ({
-        id: journal.id,
-        title: journal.title,
-        publisher: journal.publisher || "No publisher available",
-        language: journal.language || "Unknown language",
-        issn: extractISSN(journal.identifiers),
-        url: extractURL(journal.identifiers),
-      }));
+      const allJournals = results.reduce(
+        (journals, { query, journals: queryJournals }) =>
+          journals.concat(
+            queryJournals.slice(0, 20).map((journal) => ({
+              ...journal,
+              branch: query,
+              issn: extractISSN(journal.identifiers),
+              url: extractURL(journal.identifiers),
+            }))
+          ),
+        []
+      );
 
       // Sort the transformed journals alphabetically by title
-      transformedJournals.sort((a, b) => a.title.localeCompare(b.title));
+      allJournals.sort((a, b) => a.title.localeCompare(b.title));
 
       // Update state variables with the fetched and transformed journals
-      setJournalList(transformedJournals);
-      setFilteredJournalList(transformedJournals);
+      setJournalList(allJournals);
+      setFilteredJournalList(allJournals);
       setIsLoading(false);
     } catch (error) {
       // Handle fetch error
@@ -96,7 +108,6 @@ const App = () => {
       setIsLoading(false);
     }
   };
-
   // Extract the ISSN from the identifiers array
   const extractISSN = (identifiers) => {
     const issnIdentifier = identifiers.find((identifier) =>
@@ -135,6 +146,20 @@ const App = () => {
     setFilteredJournalList(filteredList);
   };
 
+  // Handle dropdown selection
+  const handleDropdownSelect = (event) => {
+    const selectedBranch = event.target.value;
+
+    if (selectedBranch === "All") {
+      setFilteredJournalList(journalList);
+    } else {
+      const filteredList = journalList.filter(
+        (journal) => journal.branch === selectedBranch
+      );
+      setFilteredJournalList(filteredList);
+    }
+  };
+
   // Handle pagination
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -153,7 +178,11 @@ const App = () => {
           render={(props) => (
             <>
               {/* Render the Hero component with search functionality */}
-              <Hero onSearch={handleSearch} />
+              <Hero
+                onSearch={handleSearch}
+                onDropdownSelect={handleDropdownSelect}
+                branches={queries}
+              />
 
               {/* Render different components based on the loading, error, and filtered journal list states */}
               {isLoading ? (

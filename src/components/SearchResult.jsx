@@ -14,6 +14,7 @@ const SearchResult = ({ list }) => {
           language={journal.language}
           issn={journal.issn}
           url={journal.url}
+          branch={journal.branch}
         />
       ))}
     </div>
