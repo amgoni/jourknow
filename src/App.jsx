@@ -28,15 +28,17 @@ const App = () => {
   const queries = [
     "machine learning",
     "data science",
-    "network security",
+    "networking",
+    "cyber security",
     "web development",
     "algorithms",
     "software engineering",
     "artificial intelligence",
     "operating systems",
-    "computer networks",
-    "computer science",
     "programming languages",
+    "robotics",
+    "computing",
+    "digital electronics",
   ];
 
   // Fetch journals on component mount
@@ -51,17 +53,17 @@ const App = () => {
       const queries = [
         "machine learning",
         "data science",
-        "network security",
+        "networking",
+        "cyber security",
         "web development",
         "algorithms",
         "software engineering",
-        "computer vision",
         "artificial intelligence",
         "operating systems",
-        "computer networks",
-        "computer architecture",
-        "computer science",
         "programming languages",
+        "robotics",
+        "computing",
+        "digital electronics",
       ];
 
       // Fetch journal data for each query

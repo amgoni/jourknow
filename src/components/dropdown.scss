@@ -3,11 +3,14 @@
 .dropdown {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  padding-top: 2rem;
 
   p {
     color: #fff;
     padding: 1rem;
     font-weight: 600;
+    font-size: 1.2rem;
   }
 
   select {
@@ -18,10 +21,28 @@
     color: $primary-color;
     font-size: 1.1rem;
     font-weight: 600;
+    text-transform: capitalize;
 
     option {
       text-align: center;
+      text-transform: capitalize;
       color: $primary-color;
+      font-family: $text-font;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .dropdown {
+    p {
+      padding-left: 0;
+      padding-right: 0.5rem;
+      font-size: 1rem;
+    }
+
+    select {
+      font-weight: 400;
+      font-size: 1rem;
     }
   }
 }
