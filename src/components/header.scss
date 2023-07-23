@@ -9,6 +9,10 @@
   margin: 0 auto;
   font-family: $heading-font;
 
+  .logo {
+    display: flex;
+  }
+
   img {
     width: 10%;
   }
