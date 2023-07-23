@@ -61,3 +61,39 @@
     rotate: 90deg;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .welcome {
+    .welcome-hero {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .welcome-hero-image {
+        display: none;
+      }
+    }
+
+    .arrow-right {
+      display: none;
+    }
+
+    .line {
+      display: none;
+    }
+
+    .diagonal {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .welcome {
+    .welcome-message {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+}
