@@ -6,7 +6,7 @@ import Dropdown from "./Dropdown";
 const Hero = ({ onSearch, onDropdownSelect, branches }) => {
   return (
     <div className="hero">
-      <h1>Your gateway to world class research journals</h1>
+      <h1>Your gateway to world class student guide.</h1>
       <div className="hero__fields">
         <Search searchFilter={onSearch} />
         <Dropdown onDropdownSelect={onDropdownSelect} branches={branches} />

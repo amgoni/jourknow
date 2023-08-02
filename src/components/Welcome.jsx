@@ -23,7 +23,7 @@ const Welcome = () => {
   return (
     <div className="welcome">
       <div className="welcome-message">
-        <h1>Your gateway to world class research journals.</h1>
+        <h1>Your gateway to a world class student guide.</h1>
       </div>
       <div className="welcome-hero">
         <div className="welcome-hero-image"></div>

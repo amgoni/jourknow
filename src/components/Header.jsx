@@ -26,7 +26,7 @@ const Header = () => {
       <nav id="navbar" className="navbar-desktop">
         <Link to="/" className="logo">
           <img src={logo} alt="ATBU logo" className="logo" />
-          <h1>Department of Computer Science</h1>
+          <h1>Department of Mathematical Science</h1>
         </Link>
         <ul className="nav-links">
           <li className="link">
@@ -46,7 +46,7 @@ const Header = () => {
       <nav className="navbar-mobile">
         <Link to="/" className="logo">
           <img src={logo} alt="ATBU logo" className="logo" />
-          <h1>Department of Computer Science</h1>
+          <h1>Department of Mathematical Science</h1>
         </Link>
         {toggleMenu ? (
           <RiCloseLine color="138601" size={30} onClick={toggleHandler} />
