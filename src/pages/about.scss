@@ -20,6 +20,15 @@
     color: black;
     padding: 0;
     font-size: 1.2rem;
+
+    a {
+      color: black;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: $primary-color;
+    }
   }
 
   p {

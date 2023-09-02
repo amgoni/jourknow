@@ -4,7 +4,7 @@ import "./footer.scss";
 const Footer = () => {
   return (
     <footer id="footer">
-      <h1> &copy; Aminu Talata Kabiru, 2023. </h1>
+      <h1> &copy; Amin Mohammed Goni, 2023. </h1>
     </footer>
   );
 };

@@ -46,7 +46,9 @@ const About = () => {
         their respective fields.
       </p>
       <h2>For more information, please contact:</h2>
-      <h3>+2349066645288</h3>
+      <h3>
+        <a href="mailto:ameen.m.goney@gmail.com">ameen.m.goney@gmail.com</a>
+      </h3>
     </div>
   );
 };
